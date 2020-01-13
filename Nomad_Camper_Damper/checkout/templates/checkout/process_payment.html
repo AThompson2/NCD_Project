@@ -1,0 +1,77 @@
+{% extends "checkout/checkout_base.html" %}
+
+
+
+
+
+{% block title %}Make Payment{% endblock %}
+
+
+
+{% load static %}
+{% block payment %}
+<link rel="stylesheet" href="{% static 'css/process_payment.css' %}">
+
+<br><br><br>
+<div class="container">
+
+
+
+<div class="jumbotron">
+
+
+    <!-- <h2>Pay with PayPal</h2><br>
+    {{ form_paypal.render }}<br> -->
+
+
+<h3>Order No.{{ order.id }}</h3><br>
+
+<div  class="row">
+<div class="col-lg-3"> </div>
+
+<div class="col-lg-6">
+<table>
+  <thead>
+  <tr>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+  </tr>
+  </thead>
+  <tbody>
+    {% for item in cart_items %}
+      <tr>
+          <td>{{ item.product.product_name }}</td>
+          <td>{{ item.price }}</td>
+          <td>{{ item.quantity }} </td>
+          <td>${{ item.total_cost }}</td>
+      </tr>
+      {% endfor %}
+  </tbody>
+  <tfoot>
+    <tr>
+        <td colspan="3" style="text-align: right">Total</td>
+        <td>${{ cart_subtotal }}</td>
+    </tr>
+  </tfoot>
+
+</table>
+</div>
+<div class="col-lg-3"> </div>
+</div><br><br><br><br><br><br><br>
+
+<h2>Pay with PayPal</h2><br>
+{{ form_paypal.render }}<br><br><br>
+
+<a href="{% url 'checkout:show_cart' %}"><button class="btn" type="button" name="button">Back to Shopping Cart</button></a>
+
+</div>
+
+</div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,37 @@
+h2{
+  color: #ffbd59;
+}
+
+h3{
+  color: #ffbd59;
+}
+
+table{
+  width:100%;
+  color:#ffbd59;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ffbd59;
+}
+
+.btn{
+  background-color: black;
+  color: #ffbd59;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ffbd59;
+}
+
+
+.jumbotron{
+    text-align: center;
+    background-color: black;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ffbd59;
+
+}
+
+.container{
+  text-align: center;
+}

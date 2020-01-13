@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+
+
+<div class="container" >
+<h1>Welcome to the Product List Page</h1>
+    <!-- <ol>
+       {% for pro in product_list %}
+        <h1>{{ pro.product_name }}</h1>
+        <img src="{{ pro.product_name }}" alt="">
+       {% endfor %}
+    </ol> -->
+
+       {% for pro in product_list %}
+<div class="card-deck card_row_top">
+  <div class="card"><a href="{{pro.id}}">
+    <img class="card-img-top" src="{{ pro.product_pic }}" alt="New Products Coming Soon!!">
+    <div class="card-block">
+      <h4 class="card-title">{{pro.product_name}}</h4>
+    </div></a>
+  </div>
+</div><br>
+
+     {% endfor %}
+</div>
+
+<div class="container">
+  <h1>Cart item</h1>
+  <form class="" action="" method="POST">
+    {{ form.as_p }}
+    {% csrf_token %}<br>
+    <input type="submit" class="btn btn-primary" name="Add To Cart" value="Add To Cart">
+
+
+
+  </form>
+</div>
+
+
+
+
+{% endblock %}

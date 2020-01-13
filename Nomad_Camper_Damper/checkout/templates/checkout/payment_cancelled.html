@@ -1,0 +1,45 @@
+{% extends "checkout/checkout_base.html" %}
+
+{% block payment_cancelled %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/payment_cancelled.css' %}">
+
+<div class="container">
+    <div class="jumbotron">
+
+<h3>Payment cancelled.</h3>
+<p>Your payment was successfully cancelled. </p>
+
+
+    </div>
+
+    <div class="card-group">
+      <div style="background-color:#ffbd59" class="card">
+        <a href="{% url 'checkout:cart_index' %}"><img src="{% static '/images/Products_img_size.png' %}" class="card-img-top" alt="..."></a>
+        <div style="background:black;" class="card-body">
+          <h5 style="color: #ffbd59" class="card-title">Products</h5>
+          <p style="color: #ffbd59" class="card-text">Click here to view our range of dampers on offer. Australian made from Australian indgrdients. We are certian you will love our products.</p>
+        </div>
+      </div>
+      <div style="background-color:#ffbd59" class="card">
+        <a href="{% url 'contact_us' %}"><img src="{% static '/images/Contact_us_size1.png' %}" class="card-img-top" alt="..."></a>
+        <div style="background:black;" class="card-body">
+          <h5 style="color: #ffbd59" class="card-title">Contact Us</h5>
+          <p style="color: #ffbd59" class="card-text">If you have any questions about our products, want to sell our dampers or have any problems with any of your orders, please feel free to get in touch with us, we would be happy to hear from you.</p>
+        </div>
+      </div>
+      <div style="background-color:#ffbd59" class="card">
+        <a href="{% url 'about_us' %}"><img src="{% static '/images/NCD_Temp_Logo.png' %}" class="card-img-top" alt="..."></a>
+        <div style="background:black;" class="card-body">
+          <h5 style="color: #ffbd59" class="card-title">About Us</h5>
+          <p style="color: #ffbd59" class="card-text">A history about our company, our idea and our plans for the future. Feel free to have a read.</p>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+
+  
+
+{% endblock %}

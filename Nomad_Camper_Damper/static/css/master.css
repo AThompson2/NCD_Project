@@ -1,0 +1,43 @@
+
+h1{
+  color:black;
+  font-size: 100px;
+}
+
+.total{
+  background-color:black;
+  align-self: center;
+  padding: 5px;
+}
+
+.mycontent{
+  max-width: 100%;
+}
+
+#overide_padding{
+padding-right: 0px;
+padding-left: 0px;
+margin-right: 0px;
+margin-left: 0px;
+}
+
+.navbar{
+  background-color: black;
+
+}
+
+.card-body{
+  background: black;
+}
+
+.card{
+  background-color: #ffbd59;
+}
+
+li{
+  color: #ffbd59;
+}
+
+a{
+  color: #ffbd59;"
+}

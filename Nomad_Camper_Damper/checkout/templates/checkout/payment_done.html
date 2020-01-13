@@ -1,0 +1,106 @@
+{% extends "checkout/checkout_base.html" %}
+{% load static %}
+
+
+{% block payment_done %}
+<link rel="stylesheet" href="{% static 'css/payment_done.css' %}">
+<br><br><br><br>
+<div class="container">
+
+<div class="jumbotron">
+
+    <h3 style="color:#ffbd59;">Payment completed.</h3><br>
+    <p style="color:#ffbd59;">Thank you for your purchase, we really hope you enjoy your products</p><br><br>
+
+
+<!-- attempt to display the invoice info -->
+
+<div id="invoice"  class="jumbotron">
+
+  <h1>Nomad Camper Damper</h1><br><br>
+
+  <p>
+    Invoice No. {{ order.id }}<br>
+    <span>
+      {{ order.date|date:"M d, Y" }}
+    </span>
+  </p><br><br>
+
+  <h3>Bill to</h3><br>
+  <p>
+    {{ order.first_name }} {{ order.last_name}}<br>
+    {{ order.email }}<br>
+    {{ order.address }}<br>
+    {{ order.postal_code }}, {{ order.city }}
+  </p><br><br>
+
+  <h3>Items bought</h3><br>
+<div class="table-responsive">
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in lineitem %}
+      <tr class="row{% cycle "1" "2" %}">
+        <td>{{ item.product.product_name }}</td>
+        <td class="num">${{ item.price }}</td>
+        <td class="num">${{ item.quantity }}</td>
+        <td class="num">${{ item.cost }}</td>
+      </tr>
+      {% endfor %}
+      <tr class="total">
+        <td style="background-color:white;" colspan="3">Total</td>
+        <td style="background-color:white;"  class="num">${{ order.total_cost }}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <span class="{% if order.paid %}paid{% else %}pending{% endif %}"></span>
+<br><br><br><br><br><br>
+<a href="{% url 'checkout:order_pdf' order.id %}"><button type="button" class="btn btn-primary">Download Invoice</button></a>
+
+
+
+</div>
+
+<a href="{% url 'home' %}"><button type="button" class="btn btn-1">Return to Home Page</button></a>
+
+<!-- End of attempt to display invoice info -->
+</div>
+
+
+<div class="card-group">
+  <div style="background-color:#ffbd59" class="card">
+    <a href="{% url 'checkout:checkout_index' %}"><img src="{% static '/images/Products_img_size.png' %}" class="card-img-top" alt="..."></a>
+    <div style="background:black;" class="card-body">
+      <h5 style="color: #ffbd59" class="card-title">Products</h5>
+      <p style="color: #ffbd59" class="card-text">Click here to view our range of dampers on offer. Australian made from Australian indgrdients. We are certian you will love our products.</p>
+    </div>
+  </div>
+  <div style="background-color:#ffbd59" class="card">
+    <a href="{% url 'contact_us' %}"><img src="{% static '/images/Contact_us_size1.png' %}" class="card-img-top" alt="..."></a>
+    <div style="background:black;" class="card-body">
+      <h5 style="color: #ffbd59" class="card-title">Contact Us</h5>
+      <p style="color: #ffbd59" class="card-text">If you have any questions about our products, want to sell our dampers or have any problems with any of your orders, please feel free to get in touch with us, we would be happy to hear from you.</p>
+    </div>
+  </div>
+  <div style="background-color:#ffbd59" class="card">
+    <a href="{% url 'about_us' %}"><img src="{% static '/images/NCD_Temp_Logo.png' %}" class="card-img-top" alt="..."></a>
+    <div style="background:black;" class="card-body">
+      <h5 style="color: #ffbd59" class="card-title">About Us</h5>
+      <p style="color: #ffbd59" class="card-text">A history about our company, our idea and our plans for the future. Feel free to have a read.</p>
+    </div>
+  </div>
+</div>
+
+
+</div><br><br><br><br>
+
+
+{% endblock %}

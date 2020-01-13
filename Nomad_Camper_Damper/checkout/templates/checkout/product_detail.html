@@ -1,0 +1,110 @@
+{% extends 'checkout/checkout_base.html' %}
+{% block title %}
+    {{ product.product_name }} |
+{% endblock %}
+
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/new_product_detail.css' %}">
+    <div class="container">
+
+
+            <p><a href="{% url 'checkout:checkout_index' %}">All Products </a> &gt;
+                {{ product.product_name }}
+            </p> <br>
+
+              <br>
+
+<!-- style="background:black; border-style: solid; border-width: 1px; border-color: #ffbd59; " -->
+        <div class="jumbotron">
+
+            <div  class="row w-100">
+                <div class="col-lg-6"><img class="img-fluid " src="{{ product.product_pic.url }}" alt=""></div>
+                <div class="col-lg-1"></div>
+               <div class="col-lg-3">
+                   <h2 style="color: #ffbd59">{{ product.product_name }}</h2> <br>
+                   <p style="color: #ffbd59">{{ product.product_info }}</p>
+                   <p style="color: #ffbd59">Price ${{ product.product_price }}</p>
+
+                   <form style="color: #ffbd59" action="{% url 'checkout:product_detail' product.id product.slug %}" method="POST">
+                       {% csrf_token %}
+                       {{ form.as_p }}
+                       <input style="color: #ffbd59; background-color: black; border-style: solid; border-width: 1px;
+                       border-color: #ffbd59;" type="submit" value="Add to cart" class="btn" >
+                  </form>
+               </div>
+            </div><br>
+
+            <!-- <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2">
+                  <p><button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
+                  Ingredients</button></p>
+
+                </div>
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2">
+                  <p><button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+                  Nutritional Information</button></p>
+                </div>
+                <div class="col-lg-1"></div>
+
+                <div class="col-lg-1"></div>
+            </div>
+
+            <div  class="row">
+                <div class="collapse" id="collapseExample1">
+                    <div class="card card-body">
+                    <ul>
+                      <li>Sugar</li>
+                      <li>Flour</li>
+                      <li>Wheat</li>
+                      <li>water</li>
+                    </ul>
+                    </div>
+              </div>
+
+              <div class="collapse" id="collapseExample2">
+                  <div class="card card-body">438 calories, a good source of vitman D etc
+                  </div>
+            </div>
+
+
+            </div> -->
+
+         </div><br>
+
+
+
+
+
+
+        <div class="card-group w-100">
+
+        {% for product in all_products %}
+
+
+
+          <div style="background-color:#ffbd59" class="card w-50">
+            <a href="{% url 'checkout:product_detail' product.pk product.slug %}"><img src="{{ product.product_pic.url }}" class="card-img-top" alt="..."></a>
+            <div style="background:black;" class="card-body">
+              <h5 style="color: #ffbd59" class="card-title">{{ product.product_name }}</h5>
+              <p style="color: #ffbd59" class="card-text">{{product.product_info}}</p>
+            </div>
+          </div>
+
+
+
+
+
+
+        {% endfor %}
+
+
+        </div>
+
+</div>
+
+
+{% endblock %}

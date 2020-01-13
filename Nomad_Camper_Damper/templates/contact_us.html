@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/contact_us.css' %}">
+
+
+<div class="container">
+    <h1 style="font-size:60px;">Contact Us</h1>
+
+    <div class="jumbotron">
+
+
+        <h2>Phone :</h2> <p>0423397052</p><br>
+        <h2>Email :</h2> <p>NomadCamperDamper@gmail.com</p><br>
+        <h2>Address : </h2> <p>37 BowerBird Street, Twin waters NSE 2541</p>
+
+
+
+
+    </div><br>
+    <a href="{% url 'home' %}"><button type="button" class="btn btn-1">Return to Home Page</button></a><br><br><br><br>
+
+
+</div><br><br>
+
+
+
+
+
+
+{% endblock %}

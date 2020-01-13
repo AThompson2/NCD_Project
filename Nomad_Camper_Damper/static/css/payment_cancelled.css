@@ -1,0 +1,15 @@
+.jumbotron{
+    background-color: black;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ffbd59;
+}
+
+
+h3{
+  color:#ffbd59;
+}
+
+p{
+  color:#ffbd59;
+}

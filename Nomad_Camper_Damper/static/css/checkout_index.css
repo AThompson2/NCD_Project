@@ -1,0 +1,31 @@
+h1{
+    color:#ffbd59;
+    text-align:center;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -o-hyphens: auto;
+    hyphens: auto;
+}
+
+
+.jumbotron{
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ffbd59;
+  background-color: black;
+}
+
+
+p{
+  color: #ffbd59;
+}
+
+.btn-1{
+  background-color: black;
+  color: #ffbd59;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ffbd59;
+}

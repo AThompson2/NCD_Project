@@ -1,0 +1,114 @@
+{% extends "checkout/checkout_base.html" %}
+{% load static %}
+
+
+{% block title %}
+    My Cart |
+{% endblock %}
+
+
+
+{% block cart %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+<div class="container">
+
+
+
+    <div class="jumbotron">
+
+
+    <h2>My Cart</h2><br><br>
+
+    {% if cart_item_count %}
+
+    <div class="table-responsive">
+      <table>
+        <thead>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th></th>
+            <th></th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in cart_items %}
+            <tr>
+                <td>{{ item.product.product_name }}</td>
+                <td>{{ item.price }}</td>
+                <td>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <input style="text-align: center;" type="text" name="quantity" value="{{ item.quantity }}">
+                        <input type="hidden" name="item_id" value="{{ item.id }}">
+
+                <td>
+                        <input type="submit" name="submit" value="Update">
+                </td>
+                    </form>
+                </td>
+
+                <td>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="item_id" value="{{ item.id }}">
+                        <input type="submit" name="submit" value="Remove">
+                    </form>
+                </td>
+                <td>${{ item.total_cost }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5" style="text-align: right">Total</td>
+                <td>${{ cart_subtotal }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="4" style="text-align: right">
+                    <a href="{% url 'checkout:checkout_index' %}" class="btn ">Continue Shopping</a>
+                </td>
+                {% if cart_item_count %}
+                    <td><a href="{% url 'checkout:checkoutOne' %}" class="btn ">Checkout</a></td>
+                {% endif %}
+            </tr>
+        </tfoot>
+      </table>
+    </div>
+    {% else %}
+        <h3>Cart Empty</h3><br>
+
+    {% endif %}
+
+
+
+    </div>
+
+
+    <div class="card-group w-100">
+
+    {% for product in all_products %}
+
+
+      <div style="background-color:#ffbd59" class="card w-50">
+        <a href="{% url 'checkout:product_detail' product.pk product.slug %}"><img src="{{ product.product_pic.url }}" class="card-img-top" alt="..."></a>
+        <div style="background:black;" class="card-body">
+          <h5 style="color: #ffbd59" class="card-title">{{ product.product_name }}</h5>
+          <p style="color: #ffbd59" class="card-text">{{product.product_info}}</p>
+        </div>
+      </div>
+
+
+    {% endfor %}
+
+
+    </div>
+
+</div>
+
+
+
+{% endblock %}

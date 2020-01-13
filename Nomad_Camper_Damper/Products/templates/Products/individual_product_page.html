@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+    {% block content %}
+
+    <h1>This is the individual_products_page</h1>
+
+
+    <div class="jumbotron">
+
+
+<form class="" action="index.html" method="post">
+      <h1>Welcome to the Individual products page</h1>
+      <h2>Product details:</h2>
+      <p>Product ID: {{Individual_product.id}}</p>
+      <p>Product Name: {{ Individual_product.product_name }}</p>
+      <img src="{{ Individual_product.product_pic }}" alt="" <br>
+      <p>Product Information: {{ Individual_product.product_info }}</p>
+      <p>Product Price: {{ Individual_product.product_price }}</p>
+
+
+
+      <form class="" action="" method="POST">
+        {{ form.as_p }}
+        {% csrf_token %}<br>
+        <input type="submit" class="btn btn-primary" name="Add To Cart" value="Add To Cart">
+      </form>
+
+
+
+
+
+    </form>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Add To Cart
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+    <p>Product Name: {{ Individual_product.product_name }}</p>
+    <p>Product Price: {{ Individual_product.product_price }}</p>
+
+
+
+
+          <form action="/add_item/"  method="POST">
+              {% csrf_token %}
+              {{ form.as_p }}
+          <input type="submit" class='btn btn-primary' value="Submit">
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  </body>
+</html>
+
+
+
+{% endblock %}

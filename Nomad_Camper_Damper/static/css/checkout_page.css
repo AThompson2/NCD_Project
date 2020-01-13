@@ -1,0 +1,72 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+
+  -webkit-text-fill-color:  #ffbd59;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.jumbotron{
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ffbd59;
+  background-color: black;
+}
+
+input{
+    background-color: black;
+    color: #ffbd59;
+    border-color: black;
+    width:100%;
+    text-align: center;
+}
+
+textarea{
+  background-color: black;
+  color: #ffbd59;
+  border-color: black;
+  text-align: center;
+  width: 100%;
+}
+
+h1{
+  color:#ffbd59;
+  text-align:center;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+}
+
+#btn-1{
+  background-color:#ffbd59;
+  color: black;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ffbd59;
+  width: 100%;
+}
+
+.btn{
+  
+    background-color:black;
+    color: #ffbd59;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ffbd59;
+}
+
+table{
+  color:#ffbd59;
+  border-color:#ffbd59;
+  width:100%;
+}

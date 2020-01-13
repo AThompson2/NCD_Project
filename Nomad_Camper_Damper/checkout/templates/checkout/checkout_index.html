@@ -1,0 +1,59 @@
+{% extends 'checkout/checkout_base.html' %}
+
+
+{% block checkout_index %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/checkout_index.css' %}">
+
+
+  <div style="text-align: center; padding-left:0px;" class="container">
+
+    <div style="background-color:black; " class="jumbotron">
+
+
+
+      <h1 style="font-size:60px;">Products</h1><br>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+          irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+          nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+          qui officia deserunt mollit anim id est laborum.</p><br><br><br>
+
+
+
+     </div>
+
+        <div class="card-group w-100">
+
+        {% for product in all_products %}
+
+
+
+          <div style="background-color:#ffbd59" class="card w-50">
+            <a href="{% url 'checkout:product_detail' product.pk product.slug %}"><img src="{{ product.product_pic.url }}" class="card-img-top" alt="..."></a>
+            <div style="background:black;" class="card-body">
+              <h5 style="color: #ffbd59" class="card-title">{{ product.product_name }}</h5>
+              <p style="color: #ffbd59" class="card-text">{{product.product_info}}</p>
+            </div>
+          </div>
+
+
+
+
+
+
+
+        {% endfor %}
+
+
+
+
+        </div><br><br><br>
+
+        <a href="{% url 'home' %}"><button type="button" class="btn btn-1">Return to Home Page</button></a>
+
+    </div>
+
+{% endblock %}
