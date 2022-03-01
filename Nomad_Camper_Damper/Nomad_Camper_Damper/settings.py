@@ -128,17 +128,17 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
      os.path.join(BASE_DIR, 'static/'),
  ]
-STATIC_ROOT = 'C:/Users/azza1/OneDrive/Desktop/NCD_Project/Nomad_Camper_Damper/static/STATIC_ROOT'
+STATIC_ROOT = '############'
  # Static_root is only for deployment, collecting all staticfiles into one place for Nginx to search for,
  # making it more efficent.
-# 'C:/Users/azza1/OneDrive/Desktop/NCD_Project/Nomad_Camper_Damper/static'
+# '############'
 # STATIC_ROOT =  os.path.join(BASE_DIR, "static/")
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #django-paypal settings
-PAYPAL_RECEIVER_EMAIL = 'arron.thompson1147@gmail.com'
+PAYPAL_RECEIVER_EMAIL = '###########'
 PAYPAL_TEST = True
 
 
@@ -146,5 +146,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'NomadCamperDamper@gmail.com'
-EMAIL_HOST_PASSWORD = 'NCD03303'
+EMAIL_HOST_USER = '############'
+EMAIL_HOST_PASSWORD = '##########'
